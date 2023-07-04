@@ -1,0 +1,109 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-danger fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-center w-100 mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home/">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="insert">INSERT</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="show">SHOW</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="show-card">PRODUCTS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+<div class="container w-50">
+    <div class="p-5">
+        <form class="form-control p-5" #_form="ngForm">
+            <div>
+                <h1 class="text-center"> Insert Product </h1>
+                <hr>
+            </div>
+            <div class="mt-3">
+                <label for="id" class="form-label">Product ID</label>
+                <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id" #_id="ngModel" required
+                    maxlength="7" minlength="7" pattern="^[0-9]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_id.dirty && _id.invalid">
+                    <li *ngIf="_id.errors?.['required']">Please enter product ID</li>
+                    <li *ngIf="_id.errors?.['minlength']">ID must be in seven degit</li>
+                    <li *ngIf="_id.errors?.['pattern']">ID must be in number</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" #_name="ngModel"
+                    required maxlength="25" pattern="^[a-zA-Z0-9 ]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_name.dirty && _name.invalid">
+                    <li *ngIf="_name.errors?.['required']">Please enter product name</li>
+                    <li *ngIf="_name.errors?.['pattern']">Please enter a valid name</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Brand</label>
+                <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="brand" #_brand="ngModel"
+                    required pattern="^[a-zA-Z0-9 ]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_brand.dirty && _brand.invalid">
+                    <li *ngIf="_brand.errors?.['required']">Please enter product ID</li>
+                    <li *ngIf="_brand.errors?.['pattern']">Name must be in charecter</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" name="price" [(ngModel)]="price" #_price="ngModel"
+                    required pattern="^[0-9]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_price.dirty && _price.invalid">
+                    <li *ngIf="_price.errors?.['required']">Please enter product unit price</li>
+                    <li *ngIf="_price.errors?.['pattern']">Product uit price must be number</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="text" class="form-control" id="stock" name="stock" [(ngModel)]="stock" #_stock="ngModel"
+                    required pattern="^[0-9]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_stock.dirty && _stock.invalid">
+                    <li *ngIf="_stock.errors?.['required']">Please enter product stock</li>
+                    <li *ngIf="_stock.errors?.['pattern']">Prodct stock must be number</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <label for="catagory" class="form-label">Catagory</label>
+                <input type="text" class="form-control" id="catagory" name="catagory" [(ngModel)]="catagory"
+                    #_catagory="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="picture" class="form-label">Picture</label>
+                <input type="text" class="form-control" id="picture" name="picture" [(ngModel)]="picture"
+                    #_picture="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="details" class="form-label">Details</label>
+                <textarea class="form-control" id="details" name="details" [(ngModel)]="details"
+                    #_details="ngModel"></textarea>
+            </div>
+            <div class="mt-3">
+                <div>
+                    <button class="btn btn-outline-success w-100 btn-lg" (click)="saveProduct()">SAVE PRODUCT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

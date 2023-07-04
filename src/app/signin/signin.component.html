@@ -1,0 +1,38 @@
+<div>
+    <div class="container w-50 p-5">
+        <form class="form-control p-5" #_signin_form="ngForm">
+            <div>
+                <h1 class="text-center">Welcome!!!</h1>
+                <hr>
+            </div>
+            <div class="mt-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="signin.username"
+                    #_username="ngModel" required pattern="^[a-zA-Z0-9]+$">
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_username.dirty && _username.invalid">
+                    <li *ngIf="_username.errors?.['required']">Please enter your username</li>
+                    <li *ngIf="_username.errors?.['pattern']">Please enter valid username</li>
+                </ul>
+            </div>
+            <div class="mt-2">
+                <label for="password" class="form-label text">Password</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="signin.password"
+                    #_password="ngModel" required>
+                <ul class="list-unstyled text-danger mt-1" *ngIf="_password.dirty && _password.invalid">
+                    <li *ngIf="_password.errors?.['required']">Please enter your password</li>
+                </ul>
+            </div>
+            <div>
+                <div class="mt-2">
+                    <button class="btn btn-outline-success btn-lg w-100" [disabled]="!_signin_form.valid" (click)="userSignIn()">Signin</button><br>
+                </div>
+                <div class="mt-5">
+                    <span>Don't have an account ? Please </span>
+                    <button class="btn btn-primary btn-sm" (click)=" signUpPage()">Signup</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,45 @@
+<div class="container w-50">
+    <div>
+        <form>
+            <div>
+                <h1 class="text-center">User Signup</h1>
+                <hr>
+            </div>
+            <div>
+                <label for="id" class="form-label">User ID</label>
+                <input class="form-control" id="id" name="id" [(ngModel)]="userup.id" #_id="ngModel">
+            </div>
+            <div>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userup.name" #_name="ngModel">
+            </div>
+            <div>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userup.email" #_email="ngModel">
+            </div>
+            <div>
+                <label for="gender" class="form-label">Gender</label>
+                <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="userup.gender" #_gender="ngModel">
+            </div>
+            <div>
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" [(ngModel)]= "userup.dob" #_dob="ngModel">
+            </div>
+            <div>
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]= "userup.username" #_username="ngModel">
+            </div>
+            <div>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]= "userup.password" #_password="ngModel">
+            </div>
+
+            <div>
+                <div>
+                    <button (click)="userSignUp()">SIGN UP</button>
+                </div>
+                <span>If you are registed, Please</span><button (click)="signInPage()">SIGN IN</button>
+            </div>
+        </form>
+    </div>
+</div>

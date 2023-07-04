@@ -1,0 +1,63 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-danger fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-center w-100 mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home/">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="insert">INSERT</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="show">SHOW</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="show-card">PRODUCTS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container p-5">
+    <h1 class="text-center mt-3">Available Products</h1>
+    <hr>
+    <table class="table table-bordered">
+        <thead class="text-center">
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Catagory</th>
+            <th>Details</th>
+            <th>Picture</th>
+            <th>Actions</th>
+        </thead>
+        <tbody *ngFor="let ptd of products, let i = index">
+            <td>{{ptd.id}}</td>
+            <td>{{ptd.name}}</td>
+            <td>{{ptd.brand}}</td>
+            <td>{{ptd.price}}</td>
+            <td>{{ptd.stock}}</td>
+            <td>{{ptd.catagory}}</td>
+            <td>{{ptd.details}}</td>
+            <td><img width="50px" src="{{'../assets/' + ptd.picture}}"></td>
+            <td>
+                <button class="btn btn-outline-success" (click)="updatePage(ptd.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-outline-danger" (click)="deleteProduct(ptd.id)"><i class="fa-solid fa-trash"></i></button>
+            </td>
+        </tbody>
+    </table>
+</div>

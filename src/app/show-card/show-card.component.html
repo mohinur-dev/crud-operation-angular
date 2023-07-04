@@ -1,0 +1,80 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-danger fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-center w-100 mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home/">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="insert">INSERT</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="show">SHOW</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="show-card">PRODUCTS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row p-5 mt-5">
+        <div *ngFor="let pdt of products" class="col-md-3">
+            <div class="card shadow-lg mb-3">
+                <img src="{{'../assets/' + pdt.picture}}" width="200px" height="200px" class="card-img-top p-3" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{pdt.name}}</h5>
+                    <hr>
+                    <table class="table table-borderd table-hover">
+                        <tbody>
+                            <tr>
+                                <th>ID</th>
+                                <td>{{pdt.id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Brand</th>
+                                <td>{{pdt.brand}}</td>
+                            </tr>
+                            <tr>
+                                <th>Stock</th>
+                                <td>{{pdt.stock}}</td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <td>{{pdt.price}}</td>
+                            </tr>
+                            <tr>
+                                <th>Details</th>
+                                <td>{{pdt.details}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group d-grid gap-1 d-md-flex justify-content-md-end">
+                        <button class="btn btn-outline-success" (click)="updatePage(pdt.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn btn-outline-danger" (click)="deleteProduct(pdt.id)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <footer>
+    
+    </footer>
+</div>
